@@ -1,0 +1,699 @@
+import React from 'react';
+import OptionsAnalysisApp from './OptionsAnalysisApp';
+
+function App() {
+  return (
+    <div className="App">
+      <OptionsAnalysisApp />
+    </div>
+  );
+}
+
+export default App;
+
+// jest-dom adds custom jest matchers for asserting on DOM nodes.
+// allows you to do things like:
+// expect(element).toHaveTextContent(/react/i)
+// learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom';
+
+/* styles.css */
+
+.container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-margin {
+  margin-bottom: 20px;
+}
+
+.button-margin {
+  margin-top: 20px;
+}
+
+/* styles.css */
+
+.button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #3e8e41;
+}
+
+.input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.input:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* styles.css */
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-header {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-title {
+  margin: 0;
+}
+/* styles.css */
+
+.select {
+  position: relative;
+  display: inline-block;
+}
+
+.select-content {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  z-index: 1;
+}
+
+.select-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.select-item:hover {
+  background-color: #f9f9f9;
+}
+
+.select-trigger {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-value {
+  padding: 10px;
+}
+
+.input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.input[type="date"] {
+  padding: 10px 15px;
+}
+
+.input[type="date"]:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+import { render, screen } from '@testing-library/react';
+import App from './App';
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.9 595.3"><g fill="#61DAFB"><path d="M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zM421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24 4.7 8 9.5 15.8 14.4 23.4zM420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6 0-15.7 22.9-35.6 58.3-50.6 8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zM310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6zM320.8 78.4z"/><circle cx="420.9" cy="296.5" r="45.7"/><path d="M520.5 78.1z"/></g></svg>
+const reportWebVitals = onPerfEntry => {
+  if (onPerfEntry && onPerfEntry instanceof Function) {
+    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+      getCLS(onPerfEntry);
+      getFID(onPerfEntry);
+      getFCP(onPerfEntry);
+      getLCP(onPerfEntry);
+      getTTFB(onPerfEntry);
+    });
+  }
+};
+
+export default reportWebVitals;
+
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+import React, { useState, useEffect } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from 'recharts';
+import { Card, CardContent, CardHeader, CardTitle } from './components/ui/Card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './components/ui/Select';
+import { Button } from './components/ui/Button';
+import { Input } from './components/ui/Input';
+
+const parseCSV = (csvString) => {
+  const lines = csvString.split('\n');
+  const headers = lines[0].split(',');
+  return lines.slice(1).map(line => {
+    const values = line.split(',');
+    return headers.reduce((obj, header, index) => {
+      obj[header.trim()] = values[index];
+      return obj;
+    }, {});
+  });
+};
+
+const calculateProfitLoss = (trades) => {
+  const profitLoss = {};
+  trades.forEach(trade => {
+    const key = `${trade.Instrument}_${trade.Description.split(' ')[1]}_${trade.Description.split(' ')[2]}`;
+    if (!profitLoss[key]) {
+      profitLoss[key] = { buyPrice: 0, sellPrice: 0, quantity: 0, pl: 0 };
+    }
+    if (trade["Trans Code"] === "BTO") {
+      profitLoss[key].buyPrice += parseFloat(trade.Price) * parseFloat(trade.Quantity);
+      profitLoss[key].quantity += parseFloat(trade.Quantity);
+    } else if (trade["Trans Code"] === "STC") {
+      profitLoss[key].sellPrice += parseFloat(trade.Price) * parseFloat(trade.Quantity);
+      profitLoss[key].quantity -= parseFloat(trade.Quantity);
+      if (profitLoss[key].quantity === 0) {
+        profitLoss[key].pl = profitLoss[key].sellPrice - profitLoss[key].buyPrice;
+      }
+    }
+  });
+  return Object.entries(profitLoss).map(([key, value]) => ({ trade: key, ...value }));
+};
+
+const OptionsTradingDashboard = () => {
+  const [csvData, setCsvData] = useState([]);
+  const [profitLossData, setProfitLossData] = useState([]);
+  const [selectedInstrument, setSelectedInstrument] = useState('All');
+  const [dateRange, setDateRange] = useState({ start: '', end: '' });
+
+  useEffect(() => {
+    // In a real application, you would fetch the CSV data here
+    const dummyCSVData = `Activity Date,Process Date,Settle Date,Instrument,Description,Trans Code,Quantity,Price,Amount
+7/3/2024,7/3/2024,7/5/2024,UBER,UBER 7/5/2024 Put $71.00,BTO,3,0.27,-81.09
+7/3/2024,7/3/2024,7/5/2024,AAPL,AAPL 7/5/2024 Put $220.00,STC,1,1.25,124.95
+7/3/2024,7/3/2024,7/5/2024,TSLA,TSLA 7/5/2024 Call $240.00,STC,3,5.00,1499.85
+7/3/2024,7/3/2024,7/5/2024,AMD,AMD 7/5/2024 Put $162.50,STC,2,1.60,319.92
+7/3/2024,7/3/2024,7/5/2024,AAPL,AAPL 7/5/2024 Put $220.00,BTO,1,0.79,-79.03
+7/3/2024,7/3/2024,7/5/2024,TSLA,TSLA 7/5/2024 Call $240.00,BTO,1,2.90,-290.03
+7/3/2024,7/3/2024,7/5/2024,TSLA,TSLA 7/5/2024 Call $240.00,BTO,1,2.90,-290.03
+7/3/2024,7/3/2024,7/5/2024,TSLA,TSLA 7/5/2024 Call $240.00,BTO,1,2.98,-298.03
+7/3/2024,7/3/2024,7/5/2024,AMD,AMD 7/5/2024 Put $162.50,BTO,2,1.13,-226.06`;
+    
+    const parsedData = parseCSV(dummyCSVData);
+    setCsvData(parsedData);
+    const plData = calculateProfitLoss(parsedData);
+    setProfitLossData(plData);
+  }, []);
+
+  const instruments = ['All', ...new Set(csvData.map(row => row.Instrument))];
+
+  const filteredData = csvData.filter(row => 
+    (selectedInstrument === 'All' || row.Instrument === selectedInstrument) &&
+    (dateRange.start === '' || row["Activity Date"] >= dateRange.start) &&
+    (dateRange.end === '' || row["Activity Date"] <= dateRange.end)
+  );
+
+  const aggregatedPL = profitLossData.reduce((acc, curr) => acc + curr.pl, 0);
+
+  return (
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">Options Trading Analysis Dashboard</h1>
+      
+      <div className="grid grid-cols-3 gap-4 mb-4">
+        <Card>
+          <CardHeader>
+            <CardTitle>Total Profit/Loss</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className={`text-2xl font-bold ${aggregatedPL >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+              ${aggregatedPL.toFixed(2)}
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Total Trades</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-2xl font-bold">{csvData.length}</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Win Rate</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-2xl font-bold">
+              {((profitLossData.filter(trade => trade.pl > 0).length / profitLossData.length) * 100).toFixed(2)}%
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+      
+      <div className="mb-4 flex space-x-4">
+        <Select onValueChange={(value) => setSelectedInstrument(value)}>
+          <SelectTrigger>
+            <SelectValue placeholder="Select Instrument" />
+          </SelectTrigger>
+          <SelectContent>
+            {instruments.map(instrument => (
+              <SelectItem key={instrument} value={instrument}>{instrument}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <Input
+          type="date"
+          placeholder="Start Date"
+          onChange={(e) => setDateRange(prev => ({ ...prev, start: e.target.value }))}
+        />
+        <Input
+          type="date"
+          placeholder="End Date"
+          onChange={(e) => setDateRange(prev => ({ ...prev, end: e.target.value }))}
+        />
+      </div>
+      
+      <div className="grid grid-cols-2 gap-4">
+        <Card>
+          <CardHeader>
+            <CardTitle>Profit/Loss by Instrument</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={profitLossData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="trade" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="pl" fill="#8884d8" />
+              </BarChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Trade Volume Over Time</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ResponsiveContainer width="100%" height={300}>
+              <LineChart data={filteredData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="Activity Date" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line type="monotone" dataKey="Quantity" stroke="#82ca9d" />
+              </LineChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
+      </div>
+      
+      <Card className="mt-4">
+        <CardHeader>
+          <CardTitle>Recent Trades</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <table className="w-full">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Instrument</th>
+                <th>Description</th>
+                <th>Transaction</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredData.slice(0, 10).map((trade, index) => (
+                <tr key={index}>
+                  <td>{trade["Activity Date"]}</td>
+                  <td>{trade.Instrument}</td>
+                  <td>{trade.Description}</td>
+                  <td>{trade["Trans Code"]}</td>
+                  <td>{trade.Quantity}</td>
+                  <td>${parseFloat(trade.Price).toFixed(2)}</td>
+                  <td>${parseFloat(trade.Amount).toFixed(2)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+export default OptionsTradingDashboard;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+import React from 'react';
+
+const Input = ({ type, value, onChange, placeholder, className, style }) => {
+  return (
+    <input
+      type={type}
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      className={`input ${className}`}
+      style={style}
+    />
+  );
+};
+
+export { Input };
+
+import React from 'react';
+import './styles.css';
+
+const Select = ({ children, className, style }) => {
+  return (
+    <div className={`select ${className}`} style={style}>
+      {children}
+    </div>
+  );
+};
+
+const SelectContent = ({ children, className, style }) => {
+  return (
+    <div className={`select-content ${className}`} style={style}>
+      {children}
+    </div>
+  );
+};
+
+const SelectItem = ({ children, className, style }) => {
+  return (
+    <div className={`select-item ${className}`} style={style}>
+      {children}
+    </div>
+  );
+};
+
+const SelectTrigger = ({ children, className, style }) => {
+  return (
+    <div className={`select-trigger ${className}`} style={style}>
+      {children}
+    </div>
+  );
+};
+
+const SelectValue = ({ children, className, style }) => {
+  return (
+    <div className={`select-value ${className}`} style={style}>
+      {children}
+    </div>
+  );
+};
+
+export { Select, SelectContent, SelectItem, SelectTrigger, SelectValue };
+
+import React from 'react';
+
+const Button = ({ children, onClick, className }) => {
+  return (
+    <button className={`btn ${className}`} onClick={onClick}>
+      {children}
+    </button>
+  );
+};
+
+export default Button;
+
+/* styles.css */
+
+.container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-margin {
+  margin-bottom: 20px;
+}
+
+.button-margin {
+  margin-top: 20px;
+}
+
+/* styles.css */
+
+.button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #3e8e41;
+}
+
+.input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.input:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* styles.css */
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-header {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-title {
+  margin: 0;
+}
+/* styles.css */
+
+.select {
+  position: relative;
+  display: inline-block;
+}
+
+.select-content {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  z-index: 1;
+}
+
+.select-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.select-item:hover {
+  background-color: #f9f9f9;
+}
+
+.select-trigger {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-value {
+  padding: 10px;
+}
+
+.input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.input[type="date"] {
+  padding: 10px 15px;
+}
+
+.input[type="date"]:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+import React from 'react';
+import './styles.css';
+
+const Card = ({ children, className, style }) => {
+  return (
+    <div className={`card ${className}`} style={style}>
+      {children}
+    </div>
+  );
+};
+
+const CardContent = ({ children, className, style }) => {
+  return (
+    <div className={`card-content ${className}`} style={style}>
+      {children}
+    </div>
+  );
+};
+
+const CardHeader = ({ children, className, style }) => {
+  return (
+    <div className={`card-header ${className}`} style={style}>
+      {children}
+    </div>
+  );
+};
+
+const CardTitle = ({ children, className, style }) => {
+  return (
+    <h2 className={`card-title ${className}`} style={style}>
+      {children}
+    </h2>
+  );
+};
+
+export { Card, CardContent, CardHeader, CardTitle };
+
+import React from 'react';
+
+const Input = ({ value, onChange, placeholder, className }) => {
+  return (
+    <input
+      type="text"
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      className={`input ${className}`}
+    />
+  );
+};
+
+export Input {};
+
